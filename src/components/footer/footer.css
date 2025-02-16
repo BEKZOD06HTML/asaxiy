@@ -1,0 +1,147 @@
+footer {
+    background: #f8f9fa;
+    font-family: Arial, sans-serif;
+        background: linear-gradient(to bottom, #007bff 50%, #ffffff 50%);
+        width: 100%;
+        height: auto;
+   
+  }
+  
+  .info-banner {
+    display: flex;
+    justify-content: space-around;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 1200px;
+    position: relative;
+    top: 50px;
+    box-shadow: 0 0 10px white;
+  }
+  
+  .info-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 250px;
+    cursor: pointer;
+    &:active{
+        transform: scale(0.95);
+    }
+  }
+  
+  .info-box img {
+    width: 40px;
+    height: 40px;
+  }
+  
+  h3 {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .iconcas{
+    width: 12px;
+    height: 12px;
+  }
+  p {
+    font-size: 12px;
+    margin: 0;
+    color: gray;
+  }
+  
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    max-width: 1200px;
+    margin: auto;
+    position: relative;
+    top: 100px;
+  }
+  
+  .footer-column {
+    flex: 1;
+    margin: 0 10px;
+  }
+  
+  .footer-column h4 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .footer-column ul {
+    list-style: none;
+    padding: 0;
+  }
+  li{
+    color: gray;
+}
+  
+  .footer-column ul li {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  
+  .footer-column p {
+    font-size: 14px;
+    margin: 5px 0;
+  }
+  
+  .footer-column button {
+    display: flex;
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    background: #f0f0f0;
+    border: none;
+    text-align:center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    &:hover{
+        color: blue;
+    }
+  }
+  .footer-column button span{
+    margin-left: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    
+  }
+  
+  .footer-column button:hover {
+    background: #e0e0e0;
+  }
+  
+
+
+
+  .payment-icons{
+    width: 320px;
+    height: 150px;
+    gap: 15px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .payment{
+    width: 120px;
+    padding: 5px;
+    background: rgb(227, 227, 227);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+  }
+  .social-icons{
+    display: flex;
+    gap: 5px;
+    scale: 1.5;
+    width: 130px;
+    justify-content: center;
+  }

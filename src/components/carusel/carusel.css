@@ -1,0 +1,134 @@
+.mySwiper {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.swiper-slide {
+    display: flex;
+    background: white;
+    width: 300px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.swiper-slide:hover {
+    transform: scale(1.03);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card {
+    width: 100%;
+    text-align: left;  /* Matn chapga hizalanadi */
+    border-radius: 15px;
+    overflow: hidden;
+    padding: 15px;
+}
+
+.card_img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+.card_content {
+    padding: 15px;
+    text-align: left;  /* Matnlar chapga surildi */
+}
+
+.product_title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+/* Reyting yulduzchalari chapga hizalandi */
+.rating {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+}
+
+/* Narxlarni chapga hizalash */
+.old {
+    font-size: 1rem;
+    color: #888;
+    text-decoration: line-through;
+    display: block;
+    text-align: left;
+}
+
+.new {
+    font-size: 1.5rem;
+    color: #0074D9;
+    font-weight: bold;
+    display: block;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+/* Tugmalar bo'limi */
+.btns {
+    display: flex;
+    justify-content: flex-start; /* Chapga hizalash */
+    gap: 10px;
+}
+
+.btn2, .btn3 {
+    padding: 10px 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-align: center;
+    border: none;
+}
+
+.btn2 {
+    background: #0074D9;
+    color: white;
+    width: 70%;
+}
+
+.btn2:hover {
+    background: #005bb5;
+}
+
+.btn3 {
+    background: #55a9f3;
+    color: white;
+    width: 25%;
+}
+
+.btn3:hover {
+    background: #3095fa;
+}
+
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+}
+.skidka {
+    font-size: 1rem;
+    color: #ff5733;
+    background: #ffe7e7;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    margin-left: 15px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

@@ -5,7 +5,7 @@ import Fight from './pages/fight/fight'
 import Buy from './pages/buy/buy'
 import Trak from './pages/trak/trak'
 import Login from './pages/login/login'
-import Product from './pages/product/product'
+// import Product from './pages/product/product'
 
 const App = () => {
   return (
@@ -16,7 +16,7 @@ const App = () => {
         <Route path='/buy' element={<Buy/>}/>
         <Route path='/trak' element={<Trak/>}/>
         <Route path='/login' element={<Login/>}/>
-        <Route path='/product/:id' element={<Product/>}/>
+        {/* <Route path='/product/:id' element={<Product/>}/> */}
       </Routes>
 
     </div>

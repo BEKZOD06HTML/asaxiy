@@ -63,22 +63,22 @@ const Products = () => {
         <div>
           <label>Nomi:</label>
           <select onChange={handleSortByName} value={sortByName}>
-            <option value="asc">A-Z</option>
-            <option value="desc">Z-A</option>
+            <option value="first">A-Z</option>
+            <option value="second">Z-A</option>
           </select>
         </div>
         <div>
           <label>Narxi:</label>
           <select onChange={handleSortByPrice} value={sortByPrice}>
-            <option value="asc">Arzon - Qimmat</option>
-            <option value="desc">Qimmat - Arzon</option>
+            <option value="first">Arzon - Qimmat</option>
+            <option value="second">Qimmat - Arzon</option>
           </select>
         </div>
         <div>
           <label>Reyting:</label>
           <select onChange={handleSortByRating} value={sortByRating}>
-            <option value="asc">O‘sish</option>
-            <option value="desc">Kamayish</option>
+            <option value="first">O‘sish</option>
+            <option value="second">Kamayish</option>
           </select>
         </div>
       </div>

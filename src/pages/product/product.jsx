@@ -4,7 +4,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Rating from '@mui/material/Rating';
-import './Product.css';
+import './product.css';
 
 const Product = () => {
     const { id } = useParams();

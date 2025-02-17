@@ -48,7 +48,7 @@ const Carousel = () => {
       >
         {products.map((product) => (
           <SwiperSlide key={product.id}>
-            <div className="card">
+            <div onClick={() => navigate(`/product/${product.id}`)} key={product.id} className="card">
               <img className="card_img" src={product.thumbnail} alt={product.title} />
               <div className="card_content">
                 <b className="product_title">{product.title}</b>

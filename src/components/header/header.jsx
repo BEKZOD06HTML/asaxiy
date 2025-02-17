@@ -14,13 +14,13 @@ const Header = () => {
           <button className="search_button">Искать</button>
         </div>
         <div className="icons">
-          <NavLink  to="/fight" className="icon_link"><img src="./assets/header/icon/figth.svg" alt="" />Сравнение</NavLink>
-          <NavLink  to="/buy" className="icon_link"> <img style={{width: '20px'  }} src="./assets/header/icon/payment.svg" alt="" />Оплатить</NavLink>
-          <NavLink  to="/trak" className="icon_link"> <img style={{width: '20px'  }} src="./assets/header/icon/tracker.svg" alt="" />Отследить</NavLink>
-          <NavLink  to="/cart" className="icon_link"><img  style={{width: '20px'  }} src="./assets/header/icon/cart.svg" alt="" />Корзина</NavLink>
-          <NavLink  to="/favorites" className="icon_link"> <img style={{width: '20px'  }}  src="./assets/header/icon/heart.svg" alt="" /> <span style={{position: 'relative', right: '7px'}}>Избранное</span></NavLink>
-          <NavLink  to="/language" className="icon_link"> <img src="./assets/header/icon/language-uz.svg" alt="" /><span style={{position: 'relative', left: ''}}>O'zbek</span></NavLink>
-          <NavLink  to="/login"  className="icon_link"><img style={{width: '20px',  }} src="./assets/header/icon/avatar.svg" alt="" /> <span style={{position: 'relative', left: '5px'}}>Войти</span> </NavLink>
+          <NavLink  to="/fight" className="icon_link"><img src="/assets/header/icon/figth.svg" alt="" />Сравнение</NavLink>
+          <NavLink  to="/buy" className="icon_link"> <img style={{width: '20px'  }} src="/assets/header/icon/payment.svg" alt="" />Оплатить</NavLink>
+          <NavLink  to="/trak" className="icon_link"> <img style={{width: '20px'  }} src="/assets/header/icon/tracker.svg" alt="" />Отследить</NavLink>
+          <NavLink  to="/cart" className="icon_link"><img  style={{width: '20px'  }} src="/assets/header/icon/cart.svg" alt="" />Корзина</NavLink>
+          <NavLink  to="/favorites" className="icon_link"> <img style={{width: '20px'  }}  src="/assets/header/icon/heart.svg" alt="" /> <span style={{position: 'relative', right: '7px'}}>Избранное</span></NavLink>
+          <NavLink  to="/language" className="icon_link"> <img src="/assets/header/icon/language-uz.svg" alt="" /><span style={{position: 'relative', left: ''}}>O'zbek</span></NavLink>
+          <NavLink  to="/login"  className="icon_link"><img style={{width: '20px',  }} src="/assets/header/icon/avatar.svg" alt="" /> <span style={{position: 'relative', left: '5px'}}>Войти</span> </NavLink>
         </div>
       </div>
       <hr />

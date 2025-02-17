@@ -6,7 +6,7 @@ const Header = () => {
     <div className="header">
       <div className="menu_top">
         <div className="logo">
-          <a href="/"><img src="./assets/header/img/asaxiy-logo.svg" alt="" /></a>
+          <a href="/"><img src="/assets/header/img/asaxiy-logo.svg" alt="" /></a>
         </div>
         <button className="category_button">Категории</button>
         <div className="search">

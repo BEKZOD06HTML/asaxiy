@@ -6,11 +6,11 @@ import Carusel from '../../components/carusel/carusel';
 
 
 
-
 const Home = () => {
   return (
     <div>
         <Header/>
+        <modalWrapper/>
         <Carusel/>
           <Products />
         <Footer/>

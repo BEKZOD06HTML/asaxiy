@@ -1,19 +1,17 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Rating } from "@mui/material";
-import "./mag.css";
 import { useNavigate } from "react-router-dom";
+import "./mag.css";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [count, setCount] = useState(1);
   const [dataLength, setDataLength] = useState(0);
-  const [sortByName, setSortByName] = useState("asc");
-  const [sortByPrice, setSortByPrice] = useState("asc");
-  const [sortByRating, setSortByRating] = useState("asc");
-  const navigate = useNavigate ();
+  const [selectedProduct, setSelectedProduct] = useState(null);
   const limit = 5;
+  const navigate = useNavigate();
 
   useEffect(() => {
     setLoading(true);
@@ -27,29 +25,15 @@ const Products = () => {
       .finally(() => setLoading(false));
   }, [count]);
 
-  const handleSortByName = (event) => {
-    const order = event.target.value;
-    setSortByName(order);
-    setProducts([...products].sort((a, b) => 
-      order === "asc" ? a.title.localeCompare(b.title) : b.title.localeCompare(a.title)
-    ));
-  };
-
-  const handleSortByPrice = (event) => {
-    const order = event.target.value;
-    setSortByPrice(order);
-    setProducts([...products].sort((a, b) => 
-      order === "asc" ? a.price - b.price : b.price - a.price
-    ));
-  };
-
-  const handleSortByRating = (event) => {
-    const order = event.target.value;
-    setSortByRating(order);
-    setProducts([...products].sort((a, b) => 
-      order === "asc" ? a.rating - b.rating : b.rating - a.rating
-    ));
-  };
+  // Modal ochilganda body scrollni bloklash
+  useEffect(() => {
+    if (selectedProduct) {
+      document.body.classList.add("modal-open");
+    } else {
+      document.body.classList.remove("modal-open");
+    }
+    return () => document.body.classList.remove("modal-open");
+  }, [selectedProduct]);
 
   return (
     <div className="container">
@@ -59,33 +43,9 @@ const Products = () => {
         </div>
       )}
 
-      <div className="filter-buttons">
-        <div>
-          <label>Nomi:</label>
-          <select onChange={handleSortByName} value={sortByName}>
-            <option value="first">A-Z</option>
-            <option value="second">Z-A</option>
-          </select>
-        </div>
-        <div>
-          <label>Narxi:</label>
-          <select onChange={handleSortByPrice} value={sortByPrice}>
-            <option value="first">Arzon - Qimmat</option>
-            <option value="second">Qimmat - Arzon</option>
-          </select>
-        </div>
-        <div>
-          <label>Reyting:</label>
-          <select onChange={handleSortByRating} value={sortByRating}>
-            <option value="first">O‘sish</option>
-            <option value="second">Kamayish</option>
-          </select>
-        </div>
-      </div>
-
       <ul className="cards">
         {products.map((product) => (
-          <li onClick={() => navigate(`/product/${product.id}`)} className="card" key={product.id}>
+          <li onClick={() => setSelectedProduct(product)} className="card" key={product.id}>
             <img className="card_img" src={product.thumbnail} alt={product.title} />
             <div className="card_content">
               <b className="product_title">{product.title}</b>
@@ -96,14 +56,26 @@ const Products = () => {
               <span className="new">
                 {(product.price * 13000).toLocaleString()} so'm
               </span>
-              <div className="btns">
-                <button className="btn2">Kупить в один клик</button>
-                <button className="btn3"><img style={{ width: '20px' }} src="./assets/header/icon/cart.svg" alt="" /></button>
-              </div>
             </div>
           </li>
         ))}
       </ul>
+
+      {selectedProduct && (
+        <div className="modal-overlay" onClick={() => setSelectedProduct(null)}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="close-btn" onClick={() => setSelectedProduct(null)}>×</button>
+            <img src={selectedProduct.thumbnail} alt={selectedProduct.title} className="modal-img" />
+            <h2>{selectedProduct.title}</h2>
+            <p>{selectedProduct.description}</p>
+            <Rating name="half-rating-read" defaultValue={selectedProduct.rating} precision={0.5} readOnly />
+            <span className="price">{(selectedProduct.price * 13000).toLocaleString()} so'm</span>
+            <button className="details-btn" onClick={() => navigate(`/product/${selectedProduct.id}`)}>
+              Подробнее...
+            </button>
+          </div>
+        </div>
+      )}
 
       {products.length > 0 && dataLength > limit * count && (
         <button onClick={() => setCount((prev) => prev + 1)} className="btn show-more">

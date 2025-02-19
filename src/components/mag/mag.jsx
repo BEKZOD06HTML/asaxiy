@@ -25,7 +25,6 @@ const Products = () => {
       .finally(() => setLoading(false));
   }, [count]);
 
-  // Modal ochilganda body scrollni bloklash
   useEffect(() => {
     if (selectedProduct) {
       document.body.classList.add("modal-open");

@@ -60,6 +60,11 @@
     display: block;
   }
   
+  .rating {
+    color: #ff9800;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
   .btns {
     margin-top: 20px;
     display: flex;

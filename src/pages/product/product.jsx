@@ -3,8 +3,8 @@ import Footer from '../../components/footer/footer';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import Rating from '@mui/material/Rating';
 import './product.css';
+import { Rating } from "@mui/material";
 
 const Product = () => {
     const { id } = useParams();

@@ -1,7 +1,6 @@
 import Header from '../../components/header/header';
 import Footer from '../../components/footer/footer';
 import { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
 import './korzina.css';
 
 const Korzina = () => {
@@ -95,7 +94,11 @@ const Korzina = () => {
             <p>В корзине {cart.length} товара</p>
             <h3>Общая сумма: {totalSum} сум</h3>
             <hr />
-         g
+          <div className="cart-buttons">
+          < button className="checkout-btn">
+  ОФОРМИТЬ 
+</button>
+          </div>
           </div>
         </div>
       </div>

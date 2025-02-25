@@ -95,10 +95,7 @@ const Korzina = () => {
             <p>В корзине {cart.length} товара</p>
             <h3>Общая сумма: {totalSum} сум</h3>
             <hr />
-            < NavLink  to="/form" className="checkout-btn">
-  ОФОРМИТЬ
-</NavLink>
-
+         g
           </div>
         </div>
       </div>

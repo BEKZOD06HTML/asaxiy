@@ -72,10 +72,10 @@
     margin-bottom: 10px;
 }
 
-/* Tugmalar bo'limi */
+
 .btns {
     display: flex;
-    justify-content: flex-start; /* Chapga hizalash */
+    justify-content: flex-start;
     gap: 10px;
 }
 

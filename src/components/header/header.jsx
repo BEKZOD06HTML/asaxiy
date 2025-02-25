@@ -4,9 +4,11 @@ import { NavLink } from "react-router-dom";
 import ModalWrapper from "../modalWrapper/modal";
 import 'react-phone-number-input/style.css'
 import PhoneInput from 'react-phone-number-input'
+// import { useStateValue } from "../../context/Provider";
 const Header = () => {
   const [isModalOpen, setisModalOpen] = useState(false)
   const [value, setValue] = useState()
+  // const {count} = useStateValue ();
   return (
     <div className="header">
       <div className="menu_top">
@@ -23,8 +25,8 @@ const Header = () => {
           <NavLink to="/buy" className="icon_link"> <img style={{ width: '20px' }} src="/assets/header/icon/payment.svg" alt="" />Оплатить</NavLink>
           <NavLink to="/trak" className="icon_link"> <img style={{ width: '20px' }} src="/assets/header/icon/tracker.svg" alt="" />Отследить</NavLink>
           <NavLink to="/cart" className="icon_link"><img style={{ width: '20px' }} src="/assets/header/icon/cart.svg" alt="" />Корзина</NavLink>
-          <NavLink to="/favorites" className="icon_link"> <img style={{ width: '20px' }} src="/assets/header/icon/heart.svg" alt="" /> <span style={{ position: 'relative', right: '7px' }}>Избранное</span></NavLink>
-          <NavLink to="/language" className="icon_link"> <img src="/assets/header/icon/language-uz.svg" alt="" /><span style={{ position: 'relative', left: '' }}>O'zbek</span></NavLink>
+          <NavLink to="/like" className="icon_link"> <img style={{ width: '20px' }} src="/assets/header/icon/heart.svg" alt="" /> <span style={{ position: 'relative', right: '7px' }}>Избранное </span></NavLink>
+          <NavLink to="" className="icon_link"> <img src="/assets/header/icon/language-uz.svg" alt="" /><span style={{ position: 'relative', left: '' }}>O'zbek</span></NavLink>
           <NavLink to="" className="icon_link"><img style={{ width: '20px', }} src="/assets/header/icon/avatar.svg" alt="" onClick={() => setisModalOpen((p) => !p)} /> <span style={{ position: 'relative', left: '5px' }}>Войти</span> </NavLink>
         </div>
       </div>

@@ -7,7 +7,7 @@ import Trak from './pages/trak/trak'
 import Login from './pages/login/login'
 import Product from './pages/product/product'
 import Like from './pages/like/Like'
-import Korzina from './pages/korzina/Korzina.jsx'
+import Korzina from './pages/korzina/Korzina'
 import Form from './components/form/form'
 const App = () => {
   return (

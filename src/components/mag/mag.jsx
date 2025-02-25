@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Rating } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import ModalWrapper from "../modalWrapper/modal";
 import "./mag.css";
 
 const Mag = () => {
@@ -54,7 +55,7 @@ const Mag = () => {
       }
 
       localStorage.setItem("cart", JSON.stringify(cart));
- 
+
       console.log("Yangilangan savat:", cart);
     } catch (error) {
       console.error("Savatga qo'shishda xatolik:", error);
@@ -114,7 +115,12 @@ const Mag = () => {
       <ul className="cards">
         {sortProducts(products).map((product) => (
           <li className="card" key={product.id}>
-            <img className="card_img" src={product.thumbnail} alt={product.title} />
+            <img
+              className="card_img"
+              src={product.thumbnail}
+              alt={product.title}
+              onClick={() => setSelectedProduct(product)}
+            />
             <div className="card_content">
               <b className="product_title">{product.title}</b>
               <Rating name="half-rating-read" defaultValue={product.rating} precision={0.5} readOnly />
@@ -127,6 +133,7 @@ const Mag = () => {
                 <button className="btn3" onClick={() => toggleLike(product)}>
                   {likedProducts.some((p) => p.id === product.id) ? <img src="./assets/qizil.png" alt="" /> : <img src="./assets/heart.png" alt="" />}
                 </button>
+               
               </div>
             </div>
           </li>
@@ -137,6 +144,15 @@ const Mag = () => {
         <button onClick={() => setCount((prev) => prev + 1)} className="btn show-more">
           Ещё?!
         </button>
+      )}
+
+      {selectedProduct && (
+        <ModalWrapper onClose={() => setSelectedProduct(null)}>
+          <h2>{selectedProduct.title}</h2>
+          <img src={selectedProduct.thumbnail} alt={selectedProduct.title} />
+          <p>{selectedProduct.description}</p>
+          <button className="btn4" onClick={() => navigate(`./product/${selectedProduct.id}`)}>Подробнее...</button>
+        </ModalWrapper>
       )}
     </div>
   );

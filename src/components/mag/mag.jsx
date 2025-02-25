@@ -60,7 +60,6 @@ const Mag = () => {
 
   return (
     <div className="container">
-      <Header likeCount={likedProducts.length} />
 
       {loading && (
         <div className="loader-container">
@@ -124,7 +123,6 @@ const Mag = () => {
         </button>
       )}
 
-      <Footer />
     </div>
   );
 };

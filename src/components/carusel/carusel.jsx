@@ -15,6 +15,11 @@ const Carousel = () => {
   const navigate = useNavigate();
   const limit = 10;
 
+  const [likedProducts, setLikedProducts] = useState(() => {
+    const savedLikes = localStorage.getItem("likedProducts");
+    return savedLikes ? JSON.parse(savedLikes) : [];
+  });
+
   useEffect(() => {
     setLoading(true);
     axios
@@ -24,6 +29,17 @@ const Carousel = () => {
       .finally(() => setLoading(false));
   }, []);
 
+  useEffect(() => {
+    localStorage.setItem("likedProducts", JSON.stringify(likedProducts));
+  }, [likedProducts]);
+
+  const toggleLike = (product) => {
+    setLikedProducts((prev) => {
+      const isLiked = prev.some((p) => p.id === product.id);
+      return isLiked ? prev.filter((p) => p.id !== product.id) : [...prev, product];
+    });
+  };
+
   return (
     <div className="container">
       {loading && (
@@ -31,6 +47,7 @@ const Carousel = () => {
           <div className="loader"></div>
         </div>
       )}
+
       <Swiper
         effect={"coverflow"}
         grabCursor={true}
@@ -53,16 +70,26 @@ const Carousel = () => {
               <img className="card_img" src={product.thumbnail} alt={product.title} />
               <div className="card_content">
                 <b className="product_title">{product.title}</b>
-                <Rating name="half-rating-read" defaultValue={product.rating} precision={0.5} readOnly />
+                <Rating name="half-rating-read" value={product.rating} precision={0.5} readOnly />
                 <span className="old">
-                  {(product.price * 1.2 * 13000).toLocaleString()} so'm 
+                  {(product.price * 1.2 * 13000).toLocaleString()} so'm
                   <span className="skidka">12%</span>
                 </span>
                 <span className="new">{(product.price * 13000).toLocaleString()} so'm</span>
                 <div className="btns">
                   <button className="btn2">Kупить в один клик</button>
-                  <button className="btn3">
-                    <img style={{ width: '20px' }} src="./assets/header/icon/cart.svg" alt="cart" />
+                  <button
+                    className="btn3"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      toggleLike(product);
+                    }}
+                  >
+                    {likedProducts.some((p) => p.id === product.id) ? (
+                      <img src="./assets/qizil.png" alt="Liked" />
+                    ) : (
+                      <img src="./assets/heart.png" alt="Like" />
+                    )}
                   </button>
                 </div>
               </div>

@@ -1,0 +1,128 @@
+/* Form.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+  }
+  
+  .form-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 24px;
+    font-size: 28px;
+    color: #222;
+  }
+  
+  .order-form {
+    display: grid;
+    gap: 20px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  
+  input, select {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+  }
+  
+  input:focus, select:focus {
+    border-color: #007bff;
+  }
+  
+  .delivery-method, .payment-method {
+    margin-top: 20px;
+  }
+  
+  h3 {
+    font-size: 22px;
+    margin-bottom: 16px;
+  }
+  
+  .delivery-options, .payment-options {
+    display: flex;
+    gap: 16px;
+  }
+  
+  .option {
+    flex: 1;
+    padding: 16px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .option:active {
+    border-color: #007bff;
+    background-color: #eef5ff;
+  }
+  
+  .option:active::after {
+
+    margin-left: 8px;
+    color: #007bff;
+  }
+  
+  .checkbox {
+    display: flex;
+    align-items: center;
+  }
+  
+  .checkbox label {
+    margin-left: 8px;
+  }
+  
+  .form-buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .submit-btn, .back-btn {
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .submit-btn {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .submit-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .back-btn {
+    background-color: #f0f0f0;
+    color: #333;
+  }
+  
+  .back-btn:hover {
+    background-color: #ddd;
+  }

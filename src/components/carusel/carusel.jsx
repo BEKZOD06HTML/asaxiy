@@ -21,12 +21,21 @@ const Carousel = () => {
   });
 
   useEffect(() => {
-    setLoading(true);
-    axios
-      .get("https://dummyjson.com/products", { params: { limit } })
-      .then((res) => setProducts(res.data.products))
-      .catch((err) => console.error("Xatolik:", err))
-      .finally(() => setLoading(false));
+    const fetchProducts = async () => {
+      try {
+        setLoading(true);
+        const response = await axios.get("https://dummyjson.com/products", {
+          params: { limit },
+        });
+        setProducts(response.data.products);
+      } catch (error) {
+        console.error("Xatolik:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProducts();
   }, []);
 
   useEffect(() => {
@@ -40,6 +49,25 @@ const Carousel = () => {
     });
   };
 
+  const addToCart = (product) => {
+    try {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const updatedCart = [...cart];
+      const existingProductIndex = updatedCart.findIndex((item) => item.id === product.id);
+
+      if (existingProductIndex !== -1) {
+        updatedCart[existingProductIndex].quantity += 1;
+      } else {
+        updatedCart.push({ ...product, quantity: 1 });
+      }
+
+      localStorage.setItem("cart", JSON.stringify(updatedCart));
+      console.log("Yangilangan savat:", updatedCart);
+    } catch (error) {
+      console.error("Savatga qo'shishda xatolik:", error);
+    }
+  };
+
   return (
     <div className="container">
       {loading && (
@@ -49,15 +77,16 @@ const Carousel = () => {
       )}
 
       <Swiper
-        effect={"coverflow"}
+        effect="coverflow"
         grabCursor={true}
         centeredSlides={true}
-        slidesPerView={"auto"}
+        slidesPerView={5}
+        initialSlide={1}
         coverflowEffect={{
-          rotate: 50,
+          rotate: 0,
           stretch: 0,
           depth: 100,
-          modifier: 1,
+          modifier: 2,
           slideShadows: true,
         }}
         pagination={{ clickable: true }}
@@ -66,18 +95,32 @@ const Carousel = () => {
       >
         {products.map((product) => (
           <SwiperSlide key={product.id}>
-            <div onClick={() => navigate(`/product/${product.id}`)} className="card">
+            <div
+              onClick={(e) => {
+                e.stopPropagation();
+                navigate(`/product/${product.id}`);
+              }}
+              className="card"
+            >
               <img className="card_img" src={product.thumbnail} alt={product.title} />
               <div className="card_content">
                 <b className="product_title">{product.title}</b>
-                <Rating name="half-rating-read" value={product.rating} precision={0.5} readOnly />
+                <Rating name="half-rating-read" value={product.rating || 0} precision={0.5} readOnly />
                 <span className="old">
-                  {(product.price * 1.2 * 13000).toLocaleString()} so'm
+                  {(product.price * 1.2 * 13000).toLocaleString()} сум
                   <span className="skidka">12%</span>
                 </span>
-                <span className="new">{(product.price * 13000).toLocaleString()} so'm</span>
+                <span className="new">{(product.price * 13000).toLocaleString()} сум</span>
                 <div className="btns">
-                  <button className="btn2">Kупить в один клик</button>
+                  <button
+                    className="btn2"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      addToCart(product);
+                    }}
+                  >
+                    Kупить в один клик
+                  </button>
                   <button
                     className="btn3"
                     onClick={(e) => {
@@ -86,9 +129,9 @@ const Carousel = () => {
                     }}
                   >
                     {likedProducts.some((p) => p.id === product.id) ? (
-                      <img src="./assets/qizil.png" alt="Liked" />
+                      <img src="/assets/qizil.png" alt="Liked" />
                     ) : (
-                      <img src="./assets/heart.png" alt="Like" />
+                      <img src="/assets/heart.png" alt="Like" />
                     )}
                   </button>
                 </div>

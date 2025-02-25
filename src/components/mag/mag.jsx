@@ -2,8 +2,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Rating } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import Header from "../../components/header/header";
-import Footer from "../../components/footer/footer";
 import "./mag.css";
 
 const Mag = () => {
@@ -44,23 +42,41 @@ const Mag = () => {
     }
   };
 
+  const addToCart = (product) => {
+    try {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const existingProductIndex = cart.findIndex((item) => item.id === product.id);
+
+      if (existingProductIndex !== -1) {
+        cart[existingProductIndex].quantity += 1;
+      } else {
+        cart.push({ ...product, quantity: 1 });
+      }
+
+      localStorage.setItem("cart", JSON.stringify(cart));
+ 
+      console.log("Yangilangan savat:", cart);
+    } catch (error) {
+      console.error("Savatga qo'shishda xatolik:", error);
+    }
+  };
+
   const sortProducts = (products) => {
     if (!sortType) return products;
 
     return [...products].sort((a, b) => {
-      if (sortType === "name-asc") return a.title.localeCompare(b.title);
-      if (sortType === "name-desc") return b.title.localeCompare(a.title);
-      if (sortType === "price-asc") return a.price - b.price;
-      if (sortType === "price-desc") return b.price - a.price;
-      if (sortType === "rating-asc") return a.rating - b.rating;
-      if (sortType === "rating-desc") return b.rating - a.rating;
+      if (sortType === "name-alpha") return a.title.localeCompare(b.title);
+      if (sortType === "name-betta") return b.title.localeCompare(a.title);
+      if (sortType === "price-alpha") return a.price - b.price;
+      if (sortType === "price-betta") return b.price - a.price;
+      if (sortType === "rating-alpha") return a.rating - b.rating;
+      if (sortType === "rating-betta") return b.rating - a.rating;
       return 0;
     });
   };
 
   return (
     <div className="container">
-
       {loading && (
         <div className="loader-container">
           <div className="loader"></div>
@@ -71,24 +87,24 @@ const Mag = () => {
         <div className="dropdown">
           <button className="dropdown-btn">Имя</button>
           <div className="dropdown-content">
-            <button onClick={() => setSortType("name-asc")}>A-Z</button>
-            <button onClick={() => setSortType("name-desc")}>Z-A</button>
+            <button onClick={() => setSortType("name-alpha")}>A-Z</button>
+            <button onClick={() => setSortType("name-betta")}>Z-A</button>
           </div>
         </div>
 
         <div className="dropdown">
           <button className="dropdown-btn">Цена</button>
           <div className="dropdown-content">
-            <button onClick={() => setSortType("price-asc")}>высокая-низкая</button>
-            <button onClick={() => setSortType("price-desc")}>низкая-высокая</button>
+            <button onClick={() => setSortType("price-alpha")}>высокая-низкая</button>
+            <button onClick={() => setSortType("price-betta")}>низкая-высокая</button>
           </div>
         </div>
 
         <div className="dropdown">
           <button className="dropdown-btn">Рейтинг</button>
           <div className="dropdown-content">
-            <button onClick={() => setSortType("rating-asc")}>Низкий</button>
-            <button onClick={() => setSortType("rating-desc")}>Высокий</button>
+            <button onClick={() => setSortType("rating-alpha")}>Низкий</button>
+            <button onClick={() => setSortType("rating-betta")}>Высокий</button>
           </div>
         </div>
 
@@ -97,17 +113,17 @@ const Mag = () => {
 
       <ul className="cards">
         {sortProducts(products).map((product) => (
-          <li onClick={() => setSelectedProduct(product)} className="card" key={product.id}>
+          <li className="card" key={product.id}>
             <img className="card_img" src={product.thumbnail} alt={product.title} />
             <div className="card_content">
               <b className="product_title">{product.title}</b>
               <Rating name="half-rating-read" defaultValue={product.rating} precision={0.5} readOnly />
               <span className="old">
-                {(product.price * 1.2 * 13000).toLocaleString()} so'm <span className="skidka">12%</span>
+                {(product.price * 1.2 * 13000).toLocaleString()} сум <span className="skidka">12%</span>
               </span>
-              <span className="new">{(product.price * 13000).toLocaleString()} so'm</span>
+              <span className="new">{(product.price * 13000).toLocaleString()} сум</span>
               <div className="btns">
-                <button className="btn2">Kупить в один клик</button>
+                <button className="btn2" onClick={() => addToCart(product)}>Kупить в один клик</button>
                 <button className="btn3" onClick={() => toggleLike(product)}>
                   {likedProducts.some((p) => p.id === product.id) ? <img src="./assets/qizil.png" alt="" /> : <img src="./assets/heart.png" alt="" />}
                 </button>
@@ -122,7 +138,6 @@ const Mag = () => {
           Ещё?!
         </button>
       )}
-
     </div>
   );
 };

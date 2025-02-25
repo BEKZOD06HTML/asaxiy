@@ -1,0 +1,129 @@
+
+.korzina {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .cart-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  .cart-items {
+    width: 70%;
+    background: white;
+
+   
+  }
+  
+  .cart-item {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding: 20px 0;
+    border: 1px solid #ccc;
+    margin-top: 5px;
+    border-radius: 10px;
+  }
+  
+  .item-image {
+    width: 100px;
+    border-radius: 8px;
+  }
+  
+  .item-details {
+    flex: 1;
+    margin-left: 20px;
+  }
+  
+  .category {
+    background: #007bff;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 8px;
+    font-size: 12px;
+  }
+  
+  .quantity-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+  }
+  
+  .quantity-control button {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #007bff;
+    background: white;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .price-details {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .old-price {
+    text-decoration: line-through;
+    color: gray;
+  }
+  
+  .new-price {
+    color: #007bff;
+    font-weight: bold;
+  }
+  
+  .monthly {
+    color: #ff6600;
+  }
+  
+  .remove-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .cart-summary {
+    width: 30%;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 50%;
+    background-color: white;
+  }
+  
+  .checkout-btn {
+    background: #0044ff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+  }
+  .remove-btn img{
+    width: 20px;
+    height: 20px;
+  }
+  .likes img{
+    width: 20px;
+    height: 20px;
+    border: none;
+  }
+  .likes{
+    border: none;
+    background: white;margin-right: 10px;
+  }
+  .cart-summary hr{
+    margin: 30px 0;
+  }
+  .cart-summary h3{
+    margin: 10px 0;
+  }
+ 

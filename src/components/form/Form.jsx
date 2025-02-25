@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../header/header';
 import Footer from '../footer/footer';
-import './Form.css';
+import './form.css';
 
 const Form = () => {
   const navigate = useNavigate();

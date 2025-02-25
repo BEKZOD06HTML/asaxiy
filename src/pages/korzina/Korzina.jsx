@@ -1,8 +1,8 @@
 import Header from '../../components/header/header';
 import Footer from '../../components/footer/footer';
-import './korzina.css';
 import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import './korzina.css';
 
 const Korzina = () => {
   const [cart, setCart] = useState([]);

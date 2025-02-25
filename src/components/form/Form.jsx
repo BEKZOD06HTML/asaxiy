@@ -4,7 +4,7 @@ import Header from '../header/header';
 import Footer from '../footer/footer';
 import './form.css';
 
-const Form = () => {
+const form = () => {
   const navigate = useNavigate();
 g
   const handleBack = () => {
@@ -89,4 +89,4 @@ g
   );
 };
 
-export default Form;
+export default form;

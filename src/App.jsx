@@ -7,7 +7,10 @@ import Trak from './pages/trak/trak'
 import Login from './pages/login/login'
 import Product from './pages/product/product'
 import Like from './pages/like/Like'
-import Korzina from './pages/korzina/Korzina.jsx'
+import Korzina from './pages/korzina/Korzina' 
+import Form from './components/form/Form'
+import "./components/utils/i18n"
+
 const App = () => {
   return (
     <div>
@@ -19,11 +22,12 @@ const App = () => {
         <Route path='/login' element={<Login/>}/>
         <Route path='/product/:id' element={<Product/>}/>
         <Route path='/like' element={<Like/>}/>
-        <Route path='/korzina' element={<Korzina/>}/>
+        <Route path='/Korzina' element={<Korzina/>}/>
+        <Route path='/form' element={<Form/>}/>
       </Routes>
 
     </div>
   )
 }
 
-export default App
+export default App;

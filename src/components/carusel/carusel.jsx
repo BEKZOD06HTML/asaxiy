@@ -8,8 +8,9 @@ import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import "./carusel.css";
-
+import { useTranslation } from "react-i18next";
 const Carousel = () => {
+  const { t } = useTranslation();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -119,7 +120,7 @@ const Carousel = () => {
                       addToCart(product);
                     }}
                   >
-                    Kупить в один клик
+                    {t('mag.buy_now')}
                   </button>
                   <button
                     className="btn3"

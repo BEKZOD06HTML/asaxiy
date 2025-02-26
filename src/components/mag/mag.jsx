@@ -4,8 +4,10 @@ import { Rating } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import ModalWrapper from "../modalWrapper/modal";
 import "./mag.css";
+import { useTranslation } from "react-i18next";
 
 const Mag = () => {
+  const { t } = useTranslation();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [count, setCount] = useState(1);
@@ -86,7 +88,7 @@ const Mag = () => {
 
       <div className="filters">
         <div className="dropdown">
-          <button className="dropdown-btn">Имя</button>
+          <button className="dropdown-btn">{t('mag.name')}</button>
           <div className="dropdown-content">
             <button onClick={() => setSortType("name-alpha")}>A-Z</button>
             <button onClick={() => setSortType("name-betta")}>Z-A</button>
@@ -94,22 +96,22 @@ const Mag = () => {
         </div>
 
         <div className="dropdown">
-          <button className="dropdown-btn">Цена</button>
+          <button className="dropdown-btn">{t('mag.price')}</button>
           <div className="dropdown-content">
-            <button onClick={() => setSortType("price-alpha")}>высокая-низкая</button>
-            <button onClick={() => setSortType("price-betta")}>низкая-высокая</button>
+            <button onClick={() => setSortType("price-alpha")}>{t('mag.high_to_low')}</button>
+            <button onClick={() => setSortType("price-betta")}>{t('mag.low_to_high')}</button>
           </div>
         </div>
 
         <div className="dropdown">
-          <button className="dropdown-btn">Рейтинг</button>
+          <button className="dropdown-btn">{t('mag.rating')}</button>
           <div className="dropdown-content">
-            <button onClick={() => setSortType("rating-alpha")}>Низкий</button>
-            <button onClick={() => setSortType("rating-betta")}>Высокий</button>
+            <button onClick={() => setSortType("rating-alpha")}>{t('mag.low')}</button>
+            <button onClick={() => setSortType("rating-betta")}>{t('mag.high')}</button>
           </div>
         </div>
 
-        <button className="filer" onClick={() => setSortType("")}> Сбросить</button>
+        <button className="filter" onClick={() => setSortType("")}>{t('mag.reset')}</button>
       </div>
 
       <ul className="cards">
@@ -129,11 +131,10 @@ const Mag = () => {
               </span>
               <span className="new">{(product.price * 13000).toLocaleString()} сум</span>
               <div className="btns">
-                <button className="btn2" onClick={() => addToCart(product)}>Kупить в один клик</button>
+                <button className="btn2" onClick={() => addToCart(product)}>{t('mag.buy_now')}</button>
                 <button className="btn3" onClick={() => toggleLike(product)}>
                   {likedProducts.some((p) => p.id === product.id) ? <img src="./assets/qizil.png" alt="" /> : <img src="./assets/heart.png" alt="" />}
                 </button>
-               
               </div>
             </div>
           </li>
@@ -142,7 +143,7 @@ const Mag = () => {
 
       {products.length > 0 && dataLength > limit * count && (
         <button onClick={() => setCount((prev) => prev + 1)} className="btn show-more">
-          Ещё?!
+          {t('mag.show_more')}
         </button>
       )}
 
@@ -151,7 +152,7 @@ const Mag = () => {
           <h2>{selectedProduct.title}</h2>
           <img src={selectedProduct.thumbnail} alt={selectedProduct.title} />
           <p>{selectedProduct.description}</p>
-          <button className="btn4" onClick={() => navigate(`./product/${selectedProduct.id}`)}>Подробнее...</button>
+          <button className="btn4" onClick={() => navigate(`./product/${selectedProduct.id}`)}>{t('mag.more_details')}</button>
         </ModalWrapper>
       )}
     </div>

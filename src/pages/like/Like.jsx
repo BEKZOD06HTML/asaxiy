@@ -4,10 +4,12 @@ import { Rating } from "@mui/material";
 import Header from "../../components/header/header";
 import Footer from "../../components/footer/footer";
 import "./like.css"
+import { useTranslation } from "react-i18next";
+
 const LikePage = () => {
   const [likedProducts, setLikedProducts] = useState([]);
   const navigate = useNavigate();
-
+  const { t } = useTranslation();
 
   useEffect(() => {
     const savedLikes = localStorage.getItem("likedProducts");
@@ -39,7 +41,7 @@ const LikePage = () => {
                   <span className="new">{(product.price * 13000).toLocaleString()} so'm</span>
                   <div className="btns">
                     <button className="btn2" onClick={() => navigate(`/product/${product.id}`)}>
-                      Подробнее
+                    {t('mag.more_details')}
                     </button>
                     <button className="btn3" onClick={() => removeLike(product.id)}>
                       <img src="./assets/qizil.png" alt="" />

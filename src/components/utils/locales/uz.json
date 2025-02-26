@@ -1,0 +1,111 @@
+
+{
+    "header": {
+      "language": "ru",
+      "category": "Kategoriyalar",
+      "search_placeholder": "Qidirish...",
+      "search": "Qidirish",
+      "compare": "Taqqoslash",
+      "pay": "To'lash",
+      "track": "Kuzatish",
+      "cart": "Savat",
+      "favorites": "Sevimlilar",
+      "login": "Kirish",
+      "discounts": "Chegirmalar",
+      "smartphones": "Smartfonlar",
+      "appliances": "Maishiy texnika",
+      "books": "Kitoblar",
+      "laptops": "Noutbuklar",
+      "bestsellers": "2024 Eng ko'p sotilganlar",
+      "modal_title": "Shaxsiy kabinetga kirish yoki yaratish",
+      "phone": "Telefon",
+      "get_activation_code": "Faollashtirish kodini olish",
+      "or": "yoki"
+    },
+    "footer": {
+    "banner": {
+      "market": "Bozorga borishning hojati yo‘q",
+      "delivery": "Bizda qulay narxlar va uyga yetkazib berish xizmati bor",
+      "fast_delivery": "Tezkor yetkazib berish",
+      "service": "Bizning xizmatimiz sizni hayratda qoldiradi",
+      "comfort": "Siz uchun qulaylik",
+      "guarantee": "Tez rasmiylashtirish va qaytarish kafolati",
+      "installment": "Muddatli to‘lov",
+      "payment_terms": "3, 6 yoki 12 oy davomida oldindan to‘lovsiz"
+    },
+    "info": {
+      "title": "Ma'lumot",
+      "faq": "Ko'p so'raladigan savollar",
+      "news": "Yangiliklar",
+      "blog": "Blog",
+      "brands": "Bizning brendlar",
+      "career": "Asaxiy’da kariyera",
+      "installment_offer": "Muddatli to‘lov taklifi",
+      "public_offer": "Ommaviy oferta",
+      "about": "Biz haqimizda",
+      "sitemap": "Sayt xaritasi"
+    },
+    "contact": {
+      "title": "Aloqa uchun",
+      "address": "Chilonzor ko‘chasi 45/2, Toshkent"
+    },
+    "loyalty": {
+      "title": "Sodiqlik dasturi",
+      "el_yurt": "El-yurt ishonchi",
+      "asaxiy_plus": "Asaxiy Plus",
+      "offer": "Asaxiy Plus taklifi"
+    },
+    "delivery": {
+      "title": "Yetkazib berish va do‘konlar",
+      "stores": "Bizning do‘konlar",
+      "pickup": "Olib ketish nuqtalari",
+      "delivery": "Yetkazib berish"
+    },
+    "payment": {
+      "title": "To‘lov turlari"
+    },
+    "social": {
+      "title": "Biz ijtimoiy tarmoqlarda"
+    }
+  },
+  "mag": {
+  "name": "Nomi bo'yicha",
+  "price": "Narx bo'yicha",
+  "rating": "Reyting bo'yicha",
+  "high_to_low": "Qimmatdan arzonigacha",
+  "low_to_high": "Arzondan qimmatigacha",
+  "low": "Past",
+  "high": "Yuqori",
+  "reset": "Filtrni tozalash",
+  "buy_now": "Xarid qilish",
+  "show_more": "Ko'proq ko'rsatish",
+  "more_details": "Batafsil ma'lumot"
+}
+,
+"form": {
+  "title": "Buyurtma berish",
+  "phone": "Telefon *",
+  "fio": "F.I.Sh *",
+  "region": "Hudud *",
+  "selectRegion": "Hududni tanlang",
+  "city": "Shahar *",
+  "selectCity": "Shaharni tanlang",
+  "deliveryMethod": "Yetkazib berish usuli *",
+  "toDoor": "Eshikgacha",
+  "deliveryCost": "Yetkazib berish narxi: 30 000 so'm",
+  "pickup": "Olib ketish punktlari",
+  "freeDelivery": "Bepul yetkazib berish",
+  "address": "Manzil",
+  "landmark": "Mo'ljal",
+  "paymentMethod": "To'lov usuli",
+  "onlinePayment": "Kartada onlayn to'lov",
+  "onDelivery": "Qabul qilishda",
+  "cashPayment": "Naqd to'lov",
+  "agree": "Tovar xarid qilish shartlariga roziman",
+  "submit": "Buyurtma berish",
+  "back": "Ortga"
+}
+
+
+  }
+  

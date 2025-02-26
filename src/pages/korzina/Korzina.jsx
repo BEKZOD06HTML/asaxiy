@@ -2,6 +2,7 @@ import Header from '../../components/header/header';
 import Footer from '../../components/footer/footer';
 import { useEffect, useState } from 'react';
 import './korzina.css';
+import { NavLink } from 'react-router-dom';
 
 const Korzina = () => {
   const [cart, setCart] = useState([]);
@@ -51,7 +52,9 @@ const Korzina = () => {
     });
   };
 
-  const totalSum = cart.reduce((acc, item) => acc + item.price * 13000 * item.quantity, 0).toLocaleString('ru-RU');
+  const totalSum = cart
+    .reduce((acc, item) => acc + item.price * 13000 * item.quantity, 0)
+    .toLocaleString('ru-RU');
 
   return (
     <div>
@@ -62,22 +65,23 @@ const Korzina = () => {
             {cart.map((item) => (
               <div key={item.id} className="cart-item">
                 <img src={item.thumbnail} alt={item.title} className="item-image" />
-
                 <div className="item-details">
                   <h2>{item.title}</h2>
-
                   <div className="quantity-control">
                     <button onClick={() => updateQuantity(item.id, -1)}>-</button>
                     <span>{item.quantity}</span>
                     <button onClick={() => updateQuantity(item.id, 1)}>+</button>
                   </div>
-
                   <div className="price-details">
-                    <span className="old-price">{Math.round(item.price * 1.2 * 13000) .toLocaleString('ru-RU')} сум  <a href=""><span className="skidka">12%</span></a></span>
-                    <span className="new-price">{(item.price * 13000).toLocaleString('ru-RU')} сум</span>
+                    <span className="old-price">
+                      {Math.round(item.price * 1.2 * 13000).toLocaleString('ru-RU')}{' '}
+                      <a href=""><span className="skidka">12%</span></a>
+                    </span>
+                    <span className="new-price">
+                      {(item.price * 13000).toLocaleString('ru-RU')} сум
+                    </span>
                   </div>
                 </div>
-
                 <button className="likes" onClick={() => toggleLike(item)}>
                   {likedProducts.some((p) => p.id === item.id) ? (
                     <img src="/assets/qizil.png" alt="Like" />
@@ -85,20 +89,21 @@ const Korzina = () => {
                     <img src="/assets/heart.png" alt="Unlike" />
                   )}
                 </button>
-                <button className="remove-btn" onClick={() => removeItem(item.id)}> <img src="./assets/delete.png" alt="" /></button>
+                <button className="remove-btn" onClick={() => removeItem(item.id)}>
+                  <img src="./assets/delete.png" alt="" />
+                </button>
               </div>
             ))}
           </div>
-
           <div className="cart-summary">
             <p>В корзине {cart.length} товара</p>
             <h3>Общая сумма: {totalSum} сум</h3>
             <hr />
-          <div className="cart-buttons">
-          < button className="checkout-btn">
-  ОФОРМИТЬ 
-</button>
-          </div>
+            <div className="cart-buttons">
+              <NavLink to="/form">
+                <button className="checkout-btn">ОФОРМИТЬ</button>
+              </NavLink>
+            </div>
           </div>
         </div>
       </div>

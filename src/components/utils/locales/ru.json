@@ -1,0 +1,109 @@
+{
+    "header": {
+      "language": "uz",
+      "category": "Категории",
+      "search_placeholder": "Поиск...",
+      "search": "Искать",
+      "compare": "Сравнение",
+      "pay": "Оплатить",
+      "track": "Отследить",
+      "cart": "Корзина",
+      "favorites": "Избранное",
+      "login": "Войти",
+      "discounts": "Скидки",
+      "smartphones": "Смартфоны",
+      "appliances": "Бытовая техника",
+      "books": "Книги",
+      "laptops": "Ноутбуки",
+      "bestsellers": "Бестселлер 2024",
+      "modal_title": "Вход или создать личный кабинет",
+      "phone": "Телефон",
+      "get_activation_code": "Получить код активации",
+      "or": "или"
+    },
+   "footer": {
+  "banner": {
+    "market": "Больше не нужно ходить на базар",
+    "delivery": "У нас выгодные цены и доставка до дома",
+    "fast_delivery": "Быстрая доставка",
+    "service": "Наш сервис удивит вас",
+    "comfort": "Удобства для вас",
+    "guarantee": "Быстрое оформление и гарантия на возврат",
+    "installment": "Рассрочка",
+    "payment_terms": "Без предоплаты на 3, 6 или 12 месяцев"
+  },
+  "info": {
+    "title": "Информация",
+    "faq": "Часто задаваемые вопросы",
+    "news": "Новости",
+    "blog": "Блог",
+    "brands": "Наши бренды",
+    "career": "Карьера в Asaxiy",
+    "installment_offer": "Оферта для рассрочки",
+    "public_offer": "Публичная оферта",
+    "about": "О нас",
+    "sitemap": "Карта сайта"
+  },
+  "contact": {
+    "title": "Для связи",
+    "address": "улица Чиланзар 45/2, Ташкент"
+  },
+  "loyalty": {
+    "title": "Программы лояльности",
+    "el_yurt": "Статус «El-yurt ishonchi»",
+    "asaxiy_plus": "«Asaxiy Plus»",
+    "offer": "Оферта «Asaxiy Plus»"
+  },
+  "delivery": {
+    "title": "Доставка и магазины",
+    "stores": "Наши магазины",
+    "pickup": "Пункты выдачи",
+    "delivery": "Доставка"
+  },
+  "payment": {
+    "title": "Типы оплаты"
+  },
+  "social": {
+    "title": "Мы в соц. сетях"
+  }
+},
+"mag": {
+  "name": "По названию",
+  "price": "По цене",
+  "rating": "По рейтингу",
+  "high_to_low": "От высокого к низкому",
+  "low_to_high": "От низкого к высокому",
+  "low": "Низкий",
+  "high": "Высокий",
+  "reset": "Сбросить фильтр",
+  "buy_now": "Купить",
+  "show_more": "Показать больше",
+  "more_details": "Подробнее"
+},
+"form":{
+  "title": "Оформить заказ",
+      "phone": "Телефон *",
+      "fio": "ФИО *",
+      "region"  : "Регион *",
+      "selectRegion": "Выберите регион",
+      "city": "Город *",
+      "selectCity": "Выберите город",
+      "deliveryMethod": "Способ доставки *",
+      "toDoor": "До двери",
+      "deliveryCost": "Стоимость доставки: 30 000 сум",
+      "pickup": "Пункты выдачи",
+      "freeDelivery": "Бесплатная доставка",
+      "address": "Адрес",
+      "landmark": "Ориентир",
+      "paymentMethod": "Способ оплаты",
+      "onlinePayment": "Картой онлайн",
+      "onDelivery": "Когда получить",
+      "cashPayment": "Оплата наличными",
+      "agree": "Я согласен с условиями покупки товаров",
+      "submit": "Оформить",
+      "back": "Назад"
+}
+}
+
+  
+  

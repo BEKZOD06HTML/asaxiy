@@ -1,25 +1,25 @@
+// mag.jsx
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Rating } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import ModalWrapper from "../modalWrapper/modal";
-import "./mag.css";
 import { useTranslation } from "react-i18next";
+import { useLike } from "../context/context";
+import "./mag.css";
 
 const Mag = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [count, setCount] = useState(1);
   const [dataLength, setDataLength] = useState(0);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [sortType, setSortType] = useState("");
-  const [likedProducts, setLikedProducts] = useState(() => {
-    const savedLikes = localStorage.getItem("likedProducts");
-    return savedLikes ? JSON.parse(savedLikes) : [];
-  });
+  const { likedProducts, toggleLike } = useLike();
+
   const limit = 5;
-  const navigate = useNavigate();
 
   useEffect(() => {
     setLoading(true);
@@ -33,18 +33,6 @@ const Mag = () => {
       .finally(() => setLoading(false));
   }, [count]);
 
-  useEffect(() => {
-    localStorage.setItem("likedProducts", JSON.stringify(likedProducts));
-  }, [likedProducts]);
-
-  const toggleLike = (product) => {
-    if (likedProducts.some((p) => p.id === product.id)) {
-      setLikedProducts(likedProducts.filter((p) => p.id !== product.id));
-    } else {
-      setLikedProducts([...likedProducts, product]);
-    }
-  };
-
   const addToCart = (product) => {
     try {
       const cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -57,7 +45,6 @@ const Mag = () => {
       }
 
       localStorage.setItem("cart", JSON.stringify(cart));
-
       console.log("Yangilangan savat:", cart);
     } catch (error) {
       console.error("Savatga qo'shishda xatolik:", error);
@@ -68,13 +55,22 @@ const Mag = () => {
     if (!sortType) return products;
 
     return [...products].sort((a, b) => {
-      if (sortType === "name-alpha") return a.title.localeCompare(b.title);
-      if (sortType === "name-betta") return b.title.localeCompare(a.title);
-      if (sortType === "price-alpha") return a.price - b.price;
-      if (sortType === "price-betta") return b.price - a.price;
-      if (sortType === "rating-alpha") return a.rating - b.rating;
-      if (sortType === "rating-betta") return b.rating - a.rating;
-      return 0;
+      switch (sortType) {
+        case "name-alpha":
+          return a.title.localeCompare(b.title);
+        case "name-betta":
+          return b.title.localeCompare(a.title);
+        case "price-alpha":
+          return a.price - b.price;
+        case "price-betta":
+          return b.price - a.price;
+        case "rating-alpha":
+          return a.rating - b.rating;
+        case "rating-betta":
+          return b.rating - a.rating;
+        default:
+          return 0;
+      }
     });
   };
 
@@ -85,34 +81,6 @@ const Mag = () => {
           <div className="loader"></div>
         </div>
       )}
-
-      <div className="filters">
-        <div className="dropdown">
-          <button className="dropdown-btn">{t('mag.name')}</button>
-          <div className="dropdown-content">
-            <button onClick={() => setSortType("name-alpha")}>A-Z</button>
-            <button onClick={() => setSortType("name-betta")}>Z-A</button>
-          </div>
-        </div>
-
-        <div className="dropdown">
-          <button className="dropdown-btn">{t('mag.price')}</button>
-          <div className="dropdown-content">
-            <button onClick={() => setSortType("price-alpha")}>{t('mag.high_to_low')}</button>
-            <button onClick={() => setSortType("price-betta")}>{t('mag.low_to_high')}</button>
-          </div>
-        </div>
-
-        <div className="dropdown">
-          <button className="dropdown-btn">{t('mag.rating')}</button>
-          <div className="dropdown-content">
-            <button onClick={() => setSortType("rating-alpha")}>{t('mag.low')}</button>
-            <button onClick={() => setSortType("rating-betta")}>{t('mag.high')}</button>
-          </div>
-        </div>
-
-        <button className="filter" onClick={() => setSortType("")}>{t('mag.reset')}</button>
-      </div>
 
       <ul className="cards">
         {sortProducts(products).map((product) => (
@@ -133,7 +101,11 @@ const Mag = () => {
               <div className="btns">
                 <button className="btn2" onClick={() => addToCart(product)}>{t('mag.buy_now')}</button>
                 <button className="btn3" onClick={() => toggleLike(product)}>
-                  {likedProducts.some((p) => p.id === product.id) ? <img src="./assets/qizil.png" alt="" /> : <img src="./assets/heart.png" alt="" />}
+                  {likedProducts.some((p) => p.id === product.id) ? (
+                    <img src="./assets/qizil.png" alt="Liked" />
+                  ) : (
+                    <img src="./assets/heart.png" alt="Like" />
+                  )}
                 </button>
               </div>
             </div>
@@ -152,7 +124,9 @@ const Mag = () => {
           <h2>{selectedProduct.title}</h2>
           <img src={selectedProduct.thumbnail} alt={selectedProduct.title} />
           <p>{selectedProduct.description}</p>
-          <button className="btn4" onClick={() => navigate(`./product/${selectedProduct.id}`)}>{t('mag.more_details')}</button>
+          <button className="btn4" onClick={() => navigate(`./product/${selectedProduct.id}`)}>
+            {t('mag.more_details')}
+          </button>
         </ModalWrapper>
       )}
     </div>

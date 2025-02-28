@@ -2,6 +2,7 @@
     width: 100%;
     padding-top: 50px;
     padding-bottom: 50px;
+    background: #0074D9;
 }
 
 .swiper-slide {
@@ -21,7 +22,7 @@
 
 .card {
     width: 100%;
-    text-align: left;  /* Matn chapga hizalanadi */
+    text-align: left;  
     border-radius: 15px;
     overflow: hidden;
     padding: 15px;
@@ -37,9 +38,11 @@
 
 .card_content {
     padding: 15px;
-    text-align: left;  /* Matnlar chapga surildi */
+    text-align: left; 
 }
-
+button{
+    text-align: center;
+}
 .product_title {
     font-size: 1.1rem;
     font-weight: bold;
@@ -47,14 +50,12 @@
     margin-bottom: 5px;
 }
 
-/* Reyting yulduzchalari chapga hizalandi */
 .rating {
     display: flex;
     justify-content: flex-start;
     margin-bottom: 10px;
 }
 
-/* Narxlarni chapga hizalash */
 .old {
     font-size: 1rem;
     color: #888;
@@ -80,7 +81,7 @@
 }
 
 .btn2, .btn3 {
-    padding: 10px 15px;
+    padding: 10px 20px;
     font-size: 1rem;
     font-weight: bold;
     border-radius: 8px;

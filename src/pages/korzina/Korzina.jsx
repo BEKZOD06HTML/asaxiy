@@ -1,15 +1,13 @@
 import Header from '../../components/header/header';
 import Footer from '../../components/footer/footer';
 import { useEffect, useState } from 'react';
-import './korzina.css';
 import { NavLink } from 'react-router-dom';
+import { useLike } from '../../components/context/context';
+import './korzina.css';
 
 const Korzina = () => {
   const [cart, setCart] = useState([]);
-  const [likedProducts, setLikedProducts] = useState(() => {
-    const savedLikes = localStorage.getItem("likedProducts");
-    return savedLikes ? JSON.parse(savedLikes) : [];
-  });
+  const { likedProducts, toggleLike } = useLike();
 
   useEffect(() => {
     try {
@@ -19,20 +17,6 @@ const Korzina = () => {
       console.error("Savatni yuklashda xatolik:", error);
     }
   }, []);
-
-  useEffect(() => {
-    localStorage.setItem("likedProducts", JSON.stringify(likedProducts));
-  }, [likedProducts]);
-
-  const toggleLike = (product) => {
-    setLikedProducts((prevLiked) => {
-      const isLiked = prevLiked.some((p) => p.id === product.id);
-      const updatedLikes = isLiked
-        ? prevLiked.filter((p) => p.id !== product.id)
-        : [...prevLiked, product];
-      return updatedLikes;
-    });
-  };
 
   const updateQuantity = (id, amount) => {
     setCart((prevCart) => {

@@ -9,17 +9,15 @@ import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import "./carusel.css";
 import { useTranslation } from "react-i18next";
+import { useLike } from "../context/context";
+
 const Carousel = () => {
   const { t } = useTranslation();
+  const { likedProducts, toggleLike } = useLike();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const limit = 10;
-
-  const [likedProducts, setLikedProducts] = useState(() => {
-    const savedLikes = localStorage.getItem("likedProducts");
-    return savedLikes ? JSON.parse(savedLikes) : [];
-  });
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -38,17 +36,6 @@ const Carousel = () => {
 
     fetchProducts();
   }, []);
-
-  useEffect(() => {
-    localStorage.setItem("likedProducts", JSON.stringify(likedProducts));
-  }, [likedProducts]);
-
-  const toggleLike = (product) => {
-    setLikedProducts((prev) => {
-      const isLiked = prev.some((p) => p.id === product.id);
-      return isLiked ? prev.filter((p) => p.id !== product.id) : [...prev, product];
-    });
-  };
 
   const addToCart = (product) => {
     try {

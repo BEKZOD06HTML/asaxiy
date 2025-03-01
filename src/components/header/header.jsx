@@ -33,7 +33,7 @@ const Header = () => {
           <NavLink to="/trak" className="icon_link"> <img style={{ width: '20px' }} src="/assets/header/icon/tracker.svg" alt="" />{t('header.track')}</NavLink>
           <NavLink to="/Korzina" className="icon_link"><img style={{ width: '20px' }} src="/assets/header/icon/cart.svg" alt="" />{t('header.cart')}</NavLink>
           <NavLink to="/like" className="icon_link"> <img style={{ width: '20px' }} src="/assets/header/icon/heart.svg" alt="" /> <span style={{ position: 'relative', right: '7px' }}>{t('header.favorites')}</span></NavLink>
-          <NavLink to="" className="icon_link"><img style={{ width: '20px' }} src="/assets/header/icon/avatar.svg" alt="" onClick={() => setisModalOpen((p) => !p)} /> <span style={{ position: 'relative', left: '5px' }}>{t('header.login')}</span> </NavLink>
+          <NavLink to="" className="icon_link"><img style={{ width: '15px' }} src="/assets/header/icon/avatar.svg" alt="" onClick={() => setisModalOpen((p) => !p)} /> <span style={{ position: 'relative', left: '5px' }}>{t('header.login')}</span> </NavLink>
           <button className="lang" onClick={toggleLeague}>{t('header.language')}</button>
         </div>
       </div>
